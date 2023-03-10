@@ -57,8 +57,10 @@ const Detail = () => {
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
                 <View style={styles.recipeItem}>
+                  <Text style={styles.measure}>{item.strCategory}</Text>
                   <Text style={styles.ingredient}>{item.ingredient}</Text>
                   <Text style={styles.measure}>{item.measure}</Text>
+                  <Text style={styles.measure}>{item.strAlcoholic}</Text>
                 </View>
               )}
             />
