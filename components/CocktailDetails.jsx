@@ -1,8 +1,7 @@
-import {Text} from "react-native";
+import { Text } from "react-native";
 
 function CocktailDetails() {
-    return <Text>Bonjour Détails</Text>;
+  return <Text>Détails du produit</Text>;
 }
-
 
 export default CocktailDetails;

@@ -1,8 +1,7 @@
-import {Text} from "react-native";
+// import { Text } from "react-native";
 
-function Favorite() {
-    return <Text>Bonjour Favoris</Text>;
-}
+// function Favorite() {
+//   return <Text>Bonjour Favoris</Text>;
+// }
 
-
-export default Favorite;
+// export default Favorite;

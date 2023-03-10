@@ -1,12 +1,12 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FontAwesome5, AntDesign, Fontisto } from "@expo/vector-icons";
+import { FontAwesome5, Fontisto } from "@expo/vector-icons";
 
 import CocktailList from "./components/CocktailList";
-// import Profile from "./components/Profile";
-import Favorite from "./components/Favorite";
+import Profile from "./components/Profile";
+// import Favorite from "./components/Favorite";
 import CocktailDetails from "./components/CocktailDetails";
 
 function MyTabs() {
@@ -23,8 +23,8 @@ function MyTabs() {
       />
 
       <Tab.Screen
-        name="Details"
-        component={CocktailDetails}
+        name="Profile"
+        component={Profile}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Fontisto name="favorite" size={size} color={color} />
