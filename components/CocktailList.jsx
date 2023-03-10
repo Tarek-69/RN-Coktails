@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import axios from "axios";
 
-function CocktailList() {
+function CocktailList({ navigation }) {
   const [cocktails, setCocktails] = useState([]);
 
   const fetchCocktails = async () => {
@@ -37,7 +37,7 @@ function CocktailList() {
     const { idDrink, strDrink, strDrinkThumb, strCategory } = item;
 
     const handlePress = () => {
-      // You can do something when a cocktail is pressed, for example navigate to a details page
+      navigation.navigate("Detail");
     };
 
     return (

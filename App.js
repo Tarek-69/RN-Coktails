@@ -3,19 +3,32 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome5, Fontisto } from "@expo/vector-icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+// Composant
 import CocktailList from "./components/CocktailList";
 import Profile from "./components/Profile";
-// import Favorite from "./components/Favorite";
 import CocktailDetails from "./components/CocktailDetails";
+
+const Stack = createNativeStackNavigator();
+
+function Home() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={CocktailList} />
+      <Stack.Screen name="Detail" component={CocktailDetails} />
+    </Stack.Navigator>
+  );
+}
 
 function MyTabs() {
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator initialRouteName="Cocktails">
       <Tab.Screen
         name="Cocktails"
-        component={CocktailList}
+        component={Home}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="cocktail" size={size} color={color} />
           ),
