@@ -1,37 +1,54 @@
-import React, { useEffect, useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import axios from "axios";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { StyleSheet, Text, View, Button } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FontAwesome5, AntDesign, Fontisto } from "@expo/vector-icons";
 
-const App = () => {
-  const [cocktails, setCocktails] = useState([]);
+import CocktailList from "./components/CocktailList";
+// import Profile from "./components/Profile";
+import Favorite from "./components/Favorite";
+import CocktailDetails from "./components/CocktailDetails";
 
-  useEffect(() => {
-    axios
-      .get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
-      .then((response) => {
-        setCocktails(response.data.drinks);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
+function MyTabs() {
   return (
-    <View style={styles.container}>
-      <Text>Liste des cocktails:</Text>
-      {cocktails.map((cocktail) => (
-        <Text key={cocktail.idDrink}>{cocktail.strDrink}</Text>
-      ))}
-    </View>
-  );
-};
+    <Tab.Navigator initialRouteName="Home">
+      <Tab.Screen
+        name="Cocktails"
+        component={CocktailList}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="cocktail" size={size} color={color} />
+          ),
+        }}
+      />
 
-export default App;
+      <Tab.Screen
+        name="Details"
+        component={CocktailDetails}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Fontisto name="favorite" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "lightgrey",
     alignItems: "center",
     justifyContent: "center",
   },
