@@ -23,7 +23,11 @@ function Profile() {
 
       <View style={styles.main}>
         <TouchableWithoutFeedback
-          onPress={() => alert("C'est une fake page ?")}
+          onPress={() =>
+            alert(
+              "C'est une fausse page... Mais elle me sert à faire une blague mais surtout à remercier mes collègues Alain & Alex pour le développement de cette application"
+            )
+          }
         >
           <Image
             source={{

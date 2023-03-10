@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome5, Fontisto } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -45,7 +45,11 @@ function MyTabs() {
         }}
       />
     </Tab.Navigator>
+
+    
   );
+
+  
 }
 
 const Tab = createBottomTabNavigator();

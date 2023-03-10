@@ -1,7 +1,6 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Text, Image, FlatList, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
-import CocktailList from "./CocktailList";
 
 const Detail = () => {
   const route = useRoute();
@@ -38,42 +37,76 @@ const Detail = () => {
     fetchCocktail().then().catch();
   }, [id]);
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.container}>
       {cocktail && (
         <>
-          <Image
-            style={{ width: 200, height: 200 }}
-            source={{ uri: `${cocktail.strDrinkThumb}` }}
-          />
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.image}
+              source={{ uri: `${cocktail.strDrinkThumb}` }}
+            />
+          </View>
 
-          <Text style={{ fontSize: 24, fontWeight: "bold" }}>
-            {cocktail.strDrink}
-          </Text>
-          <Text>Instructions</Text>
-          <Text>{cocktail.strInstructions}</Text>
-          <Text>Recipe</Text>
-          <Text>{cocktail.strInstructions}</Text>
-          <FlatList
-            data={recipe}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginVertical: 5,
-                }}
-              >
-                <Text style={{ fontWeight: "bold", marginRight: 5 }}>
-                  {item.ingredient}
-                </Text>
-                <Text>{item.measure}</Text>
-              </View>
-            )}
-          />
+          <View style={styles.detailsContainer}>
+            <Text style={styles.title}>{cocktail.strDrink}</Text>
+            <Text style={styles.subtitle}>Instructions</Text>
+            <Text style={styles.instructions}>{cocktail.strInstructions}</Text>
+            <Text style={styles.subtitle}>Recipe</Text>
+            <FlatList
+              data={recipe}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <View style={styles.recipeItem}>
+                  <Text style={styles.ingredient}>{item.ingredient}</Text>
+                  <Text style={styles.measure}>{item.measure}</Text>
+                </View>
+              )}
+            />
+          </View>
         </>
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  imageContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 10,
+  },
+  image: {
+    width: 200,
+    height: 200,
+    borderRadius: 8,
+  },
+  detailsContainer: {
+    flex: 2,
+    marginLeft: 10,
+    marginRight: 10,
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "grey",
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  instructions: {
+    fontSize: 16,
+    color: "#DE60CA",
+    fontWeight: "bold",
+  },
+});
+
 export default Detail;
