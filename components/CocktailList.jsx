@@ -37,7 +37,7 @@ function CocktailList({ navigation }) {
     const { idDrink, strDrink, strDrinkThumb, strCategory } = item;
 
     const handlePress = () => {
-      navigation.navigate("Detail");
+      navigation.navigate("Detail", { id: idDrink });
     };
 
     return (

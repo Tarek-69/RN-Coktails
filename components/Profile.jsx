@@ -30,8 +30,8 @@ function Profile() {
               uri: "https://img.freepik.com/vecteurs-libre/conception-modele-page-connexion-au-site-web_1017-30785.jpg",
             }}
             style={{
-              height: Dimensions.get("window").height * 0.3,
-              width: Dimensions.get("window").width * 0.75,
+              height: Dimensions.get("window").height * 0.4,
+              width: Dimensions.get("window").width * 0.85,
               borderRadius: 10,
             }}
           />
