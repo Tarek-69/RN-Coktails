@@ -1,8 +1,8 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FontAwesome5, Fontisto } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Composant
@@ -30,7 +30,7 @@ function MyTabs() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="cocktail" size={size} color={color} />
+            <Fontisto name="wink" size={size} color={color} />
           ),
         }}
       />
@@ -40,16 +40,12 @@ function MyTabs() {
         component={Profile}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Fontisto name="favorite" size={size} color={color} />
+            <Fontisto name="person" size={size} color={color} />
           ),
         }}
       />
     </Tab.Navigator>
-
-    
   );
-
-  
 }
 
 const Tab = createBottomTabNavigator();

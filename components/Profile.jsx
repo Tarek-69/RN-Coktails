@@ -6,6 +6,7 @@ import {
   Dimensions,
   FlatList,
   TouchableWithoutFeedback,
+  TextInput,
 } from "react-native";
 import { useState } from "react";
 
@@ -35,7 +36,7 @@ function Profile() {
             }}
             style={{
               height: Dimensions.get("window").height * 0.5,
-              
+
               width: Dimensions.get("window").width * 0.9,
               borderRadius: 10,
             }}

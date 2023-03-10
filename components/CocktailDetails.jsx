@@ -59,6 +59,7 @@ const Detail = () => {
                   <Text style={styles.ingredient}>{item.ingredient}</Text>
                   <Text style={styles.measure}>{item.measure}</Text>
                   <Text style={styles.measure}>{item.strAlcoholic}</Text>
+                  <Text style={styles.measure}>{item.strDrinkThumb}</Text>
                 </View>
               )}
             />
