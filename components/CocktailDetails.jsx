@@ -4,8 +4,6 @@ import { useRoute } from "@react-navigation/native";
 
 const Detail = () => {
   const route = useRoute();
-  console.log("ici route : ");
-  console.log(route);
   const id = route.params.id;
   const [cocktail, setCocktail] = useState(null);
   const [recipe, setRecipe] = useState(null);
@@ -31,7 +29,7 @@ const Detail = () => {
         }))
         .filter(({ ingredient, measure }) => ingredient && measure);
       setRecipe(newIngredients);
-      console.log(recipe);
+
       setCocktail(data.drinks[0]);
     };
     fetchCocktail().then().catch();
@@ -51,7 +49,7 @@ const Detail = () => {
             <Text style={styles.title}>{cocktail.strDrink}</Text>
             <Text style={styles.subtitle}>Instructions</Text>
             <Text style={styles.instructions}>{cocktail.strInstructions}</Text>
-            <Text style={styles.subtitle}>Recipe</Text>
+            <Text style={styles.subtitle}>Recette</Text>
             <FlatList
               data={recipe}
               keyExtractor={(item, index) => index.toString()}
